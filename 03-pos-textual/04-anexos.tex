@@ -1,0 +1,69 @@
+\appendix
+
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+
+\renewcommand{\appendixtocname}{ANEXOS}%renomeia de 
+%apendice p/ anexo (no sumário)
+\noappendicestocpagenum %nao aparece o numero da pagina no 
+%sumário
+\addappheadtotoc % adiciona a seção ANEXOS no sumário
+\renewcommand{\appendixname}{ANEXO}% renomeia o prefixo 
+%Apêndice p/ ANEXO
+\renewcommand{\appendixpagename}{ANEXOS}% renomeia o 
+%prefixo Apêndice p/ ANEXO
+\addtocontents{toc}{\cftpagenumbersoff{chapter}} % Retira a 
+%numeração da pagina no sumário
+\addtocontents{toc}{\cftpagenumbersoff{section}} % Retira a 
+%numeração da pagina no sumário
+
+%\appendixpage
+%\addcontentsline{toc}{chapter}{ANEXOS} 
+%\chapter*{\hfill {\bfseries ANEXOS} \hfill}
+\addtocontents{toc}
+{
+	\setlength{\cftbeforechapskip}{\cftbeforesecskip}
+	\setlength{\cftchapindent}{\cftsecindent}
+	
+	\setlength{\cftbeforesecskip}{\cftbeforesubsecskip}
+	\setlength{\cftsecindent}{\cftsubsecindent}
+	
+	%\protect\renewcommand{\cftchapfont}{\cftsecfont}
+	%\protect\renewcommand{\protect\cftchapdotsep}{\cftsecdotsep}
+}
+
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}
+[display]
+{\centering\normalfont\large\bfseries}
+{\vspace{3pt}\vspace{3pt}\MakeUppercase{\partname} \thepart}
+{0pt}
+{\titlerule[0pt]\vspace{1pc}\large\MakeUppercase}
+%
+\titlespacing*{\part}{0pt}{10pt}{20pt}
+
+%\insertblankpage
+
+\part*{ANEXOS}
+
+\etoctoccontentsline*{appendixplaceholder}{APPENDIX}{-1}
+\etocsettocdepth{chapter}
+
+\etocmulticolstyle[1]{\normalsize
+	\hrulefill
+	\MakeUppercase{}
+}
+\localtableofcontents
+\vspace{-11pt}
+\hrulefill
+
+\renewcommand{\thechapter}{\Alph{chapter}} % Usar letras ao 
+%inves de numeros para os capitulos
+\renewcommand{\thesection}{\thechapter.\Roman{section}} % 
+%Usar letras ao inves de numeros para os capitulos
+\setcounter{chapter}{0} % resetar a contagem
+
+\insertblankpage
+
+\fancypagestyle{plain}{\fancyhead[LE,RO]{}}
+\pagestyle{fancy}{\fancyhead[LE,RO]{}}
+
