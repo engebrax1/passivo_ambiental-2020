@@ -1,0 +1,509 @@
+% Classe do documento - PREÃÂMBULO
+\documentclass[a4paper, twoside, 11pt]{report} %showframe
+%\documentclass[chapterprefix=false,appendixprefix=true]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[latin1, utf8]{inputenc} %%%caracteres latinos
+\usepackage{lmodern}
+%\usepackage{txfonts}f
+\usepackage[a4paper, left=3cm, right=2cm, top=4.3cm, bottom=3.7cm]{geometry}
+%%%%%%%%%%%%%%%%%
+%\usepackage[printonlyused,withpage]{acronym}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem} 
+\usepackage{blindtext}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{longtable}
+%\usepackage{ctable}
+\usepackage{color}
+%\usepackage{europs}%simbolo euro
+%\usepackage[gen]{eurosym}
+\usepackage{placeins} 
+%\usepackage{savesym}
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+% c o m m a n d  \text  f r o m   a m s m a t h
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\DeclareRobustCommand{\text}{%
+  \ifmmode\expandafter\text@\else\expandafter\mbox\fi}
+\let\nfss@text\text
+\def\text@#1{{\mathchoice
+  {\textdef@\displaystyle\f@size{#1}}%
+  {\textdef@\textstyle\f@size{#1}}%
+  {\textdef@\textstyle\sf@size{#1}}%
+  {\textdef@\textstyle \ssf@size{#1}}%
+  \check@mathfonts
+  }%
+}
+\def\textdef@#1#2#3{\hbox{{%
+                    \everymath{#1}%
+                    \let\f@size#2\selectfont
+                    #3}}}
+\makeatother
+% c o m m a n d  \text  f r o m   a m s m a t h
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{helvet}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+%\usepackage{framed}
+%\input{nicetoc}
+\usepackage{pstricks-add}
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+%\usepackage{floatrow} % Table float box with bottom 
+%%caption, box width adjusted to content
+%	\floatsetup[table]{style=plaintop}
+%	\DeclareFloatSeparators{MySep}{\hspace{-12pt}}
+%	\floatsetup[figure]{style=plain, floatrowsep=Mysep}
+%	\floatsetup[subfigure]{subfloatrowsep=none}
+\usepackage{import}
+\usepackage[normalem]{ulem} %permite sublinhar palavras
+
+\usepackage[activate={true,nocompatibility}, final, tracking=true, kerning=true, spacing=true factor=1100,stretch=10,shrink=10]{microtype}
+\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
+              {1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
+
+               6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
+\microtypecontext{spacing=nonfrench}
+
+\SetExtraKerning[unit=space]
+    {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+    {\textendash={400,400}, % en-dash, add more space around it
+     28={ ,150}, % left bracket, add space from right
+     29={150, }, % right bracket, add space from left
+     \textquotedblleft={ ,150}, % left quotation mark, space from right
+     \textquotedblright={150, }} % right quotation mark, space from left
+
+\SetExtraKerning[unit=space]
+   {encoding={*}, family={qhv}, series={b}, size={large,Large}}
+   {1={-200,-200}, 
+    \textendash={400,400}}
+
+\SetTracking{encoding={*}, shape=sc}{40}
+
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use draft to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+%\usepackage{datetime}
+\usepackage{etoolbox}
+\usepackage[flushleft]{threeparttable}
+
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{tabularx}
+% -> tabela colorida
+\usepackage{colortbl}
+\usepackage{array}
+	\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%\usepackage[table]{xcolor}
+%%%%%%%%%%%%%%
+\usepackage{wrapfig}
+%\usepackage{cutwin}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{3} % profundidade do sumÃÂ¡rio
+\setcounter{tocdepth}{3} % % profundidade do sumÃÂ¡rio
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{tikz} \usetikzlibrary{fit,arrows,calc,positioning,fit, decorations.pathreplacing,tikzmark}\usepgfplotslibrary{fillbetween}\usetikzlibrary{matrix}\usetikzlibrary{plotmarks}
+\usetikzlibrary{fadings}\usetikzlibrary{shapes.geometric}
+
+% % % % % % % % % % % % % % % %
+%https://tex.stackexchange.com/questions/340139/create-a-container-in-a-block-diagram-with-tikz-package
+%\tikzstyle{block} = [draw, rectangle, text width=4.5cm, text centered, minimum height=1.5cm, node distance = 5.5cm and 1cm]
+%\tikzstyle{container} = []
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\usepackage[skins]{tcolorbox}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+
+\usepackage{indentfirst}
+\usepackage[brazil]{babel}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{pdfpages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{caption}
+	\captionsetup{labelsep=endash,
+					font=small,
+					labelfont=bf,
+					textfont=small,
+					listformat=simple,
+					figurewithin=none,
+					tablewithin=none}
+%\renewcommand{\thetable}{\thechapter.\arabic{table}}
+%\renewcommand{\thefigure}{\arabic{figure}}
+\usepackage{subcaption}
+	\renewcommand{\thesubfigure}{Fig. \thefigure.\arabic{subfigure}}
+%	\DeclareCaptionSubType*[labelsep]{subfigure}
+	\captionsetup[subfigure]{labelformat=simple,labelsep=space}
+%	listofformat=subsimple}
+%	\captionsetup{lofdepth=2}
+%	\makeatletter
+%	\renewcommand{\p@subfigure}{}
+%\makeatother
+
+%\captionsetup[table]{name = Quadro}
+\newcommand{\aref}[1]{\cref{#1} \textendash ~\nameref{#1}} 
+% Anexo A - TÃÂ­ÃÂ­tulo do Anexo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\thispagestyle{plain}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\usepackage{titlesec}
+
+%\setcounter{secnumdepth}{3}
+
+%%% cabeÃÂ§alho e rodapÃÂ© p/ pÃÂ¡ginas
+\pagestyle{fancy}
+	\fancyhead{} % clear all header fields
+	\fancyhead[RE,LO]{Araucaria Engenharia Ambiental e  
+	Civil}
+	\fancyhead[LE,RO]{\thepage} 
+	\fancyfoot{} % clear all footer fields
+	\cfoot{Avaliação Preliminar e Investigação Confirmatória\\S R Meurer Comércio de CombustÃ­veis - EIRELLI}
+	\renewcommand{\headrulewidth}{1pt} %espessura da linha 
+	%do cabeÃÂ§alho
+	\renewcommand{\footrulewidth}{1pt} %espessura da linha 
+	%do rodapÃÂ©
+\fancypagestyle{plain}{ % cabeÃÂ§alho e rodapÃÂ© p/ inÃÂ­ÃÂ­cio 
+%de capÃÂ­ÃÂ­tulos
+	\fancyhead{} % clear all header fields
+	\fancyhead[RE,LO]{Araucaria Engenharia Ambiental e  
+	Civil}
+	\fancyhead[LE,RO]{\thepage}
+	\fancyfoot{} % clear all footer fields
+	\cfoot{Avaliação Preliminar e Investigação Confirmatória\\S R Meurer Comércio de CombustÃ­veis - EIRELLI}
+	\renewcommand{\headrulewidth}{1pt} %espessura da linha 
+	%do cabeÃÂ§alho
+	\renewcommand{\footrulewidth}{1pt}} %espessura da linha 
+	%do rodapÃÂ©
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{14.5pt}
+%% F O R M A T A ÃÂ ÃÂ­ O  D E  C A P ÃÂ T U L O S ,  S E ÃÂ ÃÂ E 
+%%S
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}
+[display]
+{\centering\normalfont\Large\bfseries}
+{\titlerule[2pt]\vspace{3pt}\titlerule[1pt]\vspace{3pt}\MakeUppercase{\partname} \thepart}
+{0pt}
+{\titlerule[1pt]\vspace{1pc}\Large\MakeUppercase}
+%
+\titlespacing*{\part}{0pt}{0pt}{20pt}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titlespacing*{\chapter}{0pt}{10pt}{20pt} % espaÃÂ§o entre o 
+%cabeÃÂ§alho e capÃÂ­ÃÂ­tulo
+%
+\titleformat{\chapter}[display]
+  {\normalfont %\sffamily
+	\large \bfseries}
+  {\chaptertitlename\ \thechapter}{16pt}{\large \MakeUppercase }
+\titleformat{\section}
+  {\normalfont %\sffamily
+	 \normalsize \bfseries}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+%% subsection format
+  {\normalfont %\sffamily
+	 \normalsize \bfseries}
+  {\thesubsection}{1em}{}
+%% subsubsection format
+\titleformat{\subsubsection}
+  {\normalfont \MakeLowercase %\sffamily
+	 \normalsize \bfseries}
+  {\thesubsubsection}{1em}{}
+%% paragraph format
+\titleformat{\paragraph}
+    {\MakeLowercase \normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{.75ex plus .1ex}
+%% subparagraph format
+\titleformat{\subparagraph}
+    {\MakeLowercase\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{.75ex plus .1ex}
+
+%%%% F O R M A T A ÃÂ ÃÂ­ O  T ÃÂ­ÃÂ­ T U L O  D O  S U M ÃÂ­ÃÂ R I O
+%
+\usepackage{tocloft} %change table of contents
+
+\setlength{\cftbeforetoctitleskip}{10pt} % espaÃÂ§o vertical 
+%antes do titulo toc
+\setlength{\cftaftertoctitleskip}{20pt} % espaÃÂ§o vertical 
+%depois do titulo toc
+
+\setlength{\cftbeforeloftitleskip}{10pt} % espaÃÂ§o vertical 
+%antes do titulo lof
+\setlength{\cftafterloftitleskip}{20pt} % espaÃÂ§o vertical 
+%antes do titulo lof
+
+\setlength{\cftbeforelottitleskip}{10pt}% espaÃÂ§o vertical 
+%antes do titulo lot
+\setlength{\cftafterlottitleskip}{20pt}% espaÃÂ§o vertical 
+%antes do titulo lot
+
+%\setlength{\cha}
+
+%add o label Figura - na Lista de Figuras
+	\newlength{\mylen}
+	\renewcommand{\cftfigpresnum}{\figurename\enspace}
+	\renewcommand{\cftfigaftersnum}{ \textendash }
+	\settowidth{\mylen}{\cftfigpresnum}
+	\addtolength{\cftfignumwidth}{\dimexpr\mylen}
+	\setlength{\cftfigindent}{0pt}% no indent
+
+%add o label Tabela - na Lista de Tabelas
+	\renewcommand{\cfttabpresnum}{\tablename\enspace}
+	\renewcommand{\cfttabaftersnum}{ \textendash }
+	\settowidth{\mylen}{0.6\cfttabpresnum\cfttabaftersnum}
+	\addtolength{\cfttabnumwidth}{0.7\mylen}
+	\setlength{\cfttabindent}{0pt}% no indent
+%sumÃÂ¡rio upper case
+
+% centralizar sumÃÂ¡rio
+	\renewcommand{\cfttoctitlefont}{\hfill \large \bfseries \MakeUppercase} 
+	\renewcommand{\cftaftertoctitle}{\hfill}
+
+% centralizar lista de figuras
+	\renewcommand{\cftloftitlefont}{\hfill \large \bfseries \MakeUppercase }
+	\renewcommand{\cftafterloftitle}{\hfill}
+
+% centralizar lista de tabelas
+	\renewcommand{\cftlottitlefont}{\hfill \large\bfseries \MakeUppercase }
+	\renewcommand{\cftafterlottitle}{\hfill}
+
+
+% % % A N E X O S % % % 
+
+\usepackage{appendix}
+
+
+\let\oldappendices\appendices
+\def\appendices{\oldappendices\adjustmtc}
+
+\appendixpageoff
+
+\newlength{\tocnumwidth}
+\newlength{\temp}
+\setlength{\tocnumwidth}{\cftchapnumwidth} % store the 
+%starting width of the TOC chapter number
+
+%\renewcommand{\cftchappresnum}{\chaptername\space}
+%\settowidth{\temp}{\bfseries\cftchappresnum\cftchapaftersnum}
+% % calculate the extra space
+%\addtolength{\cftchapnumwidth}{\temp} % add the extra space
+% uncomment the 3 lines above  if you want the word Chapter 
+%to precede the number in the TOC
+
+\renewcommand*{\cftchapaftersnum}{\space}
+
+\renewcommand{\appendixname}{ANEXO}
+
+\DeclareRobustCommand{\changetoapp}{%
+	\renewcommand*{\cftchappresnum}{ANEXO\space}%
+	\renewcommand{\cftchapaftersnum}{~\textendash}
+	\settowidth{\temp}{\bfseries\cftchappresnum\cftchapaftersnum}
+	% comment the line above out if you include Chapter 
+	%before the number in the TOC want the Chapter and 
+	%Appendix TOC entries to line up.
+	\renewcommand{\cftsecaftersnum}{~\textendash}
+	
+	\setlength\cftchapnumwidth{\tocnumwidth}
+	\addtolength{\cftchapnumwidth}{\temp}
+	%%
+	\setlength\cftsecnumwidth{\tocnumwidth}
+	\addtolength{\cftsecnumwidth}{0.35\temp}}
+%%
+\let\oldappendix\appendix
+\renewcommand*{\appendix}{\oldappendix 
+\addtocontents{toc}{\changetoapp}}
+
+%
+
+
+%new command to insert a blank page
+\newcommand{\insertblankpage}{
+\vfill
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+}
+%new command to insert a page break
+\newcommand{\startnewpage}{
+\vfill
+\pagebreak[4]
+}
+
+
+\usepackage{etoc}
+%\newcommand*{\figuretotoc}{\etoctoccontentsline{Figure}{\thefig}}
+
+
+
+
+%\makeatletter
+%\let\titlesec@part\part
+%\renewcommand{\part}{\@ifstar\part@star\part@nostar}
+%\def\part@star#1{\NR@gettitle{#1}\titlesec@part*{#1}}
+%\def\part@nostar{\@ifnextchar[\part@nostar@opt\part@nostar@nopt}
+%\def\part@nostar@nopt#1{\NR@gettitle{#1}\titlesec@part{#1}}
+%\def\part@nostar@opt[#1]#2{\NR@gettitle{#2}\titlesec@part[#1]{#2}}
+%\makeatother
+
+%bordas na imagem
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\setlength\fboxsep{0pt}    %%%%%%%%%%%%%%%%%%
+	\setlength\fboxrule{0.75pt}%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{epstopdf}
+
+%%  - - - - -  LISTA DE SIGLAS
+%
+\usepackage[toc,
+	nonumberlist,
+	nopostdot, 
+	nonumberlist,
+	style=long,
+	automake,
+	acronym]{glossaries}
+\makeglossaries%
+
+\newacronym{cnpj}{CNPJ}{Cadastro Nacional de Pessoa 
+JurÃÂ­ÃÂ­dica}%
+%\new
+
+%%%%%%%%%%%%%%%% --------
+
+% --- Bibliografia
+\usepackage[%
+	backend=biber,
+	style=numeric
+	]{biblatex}
+\addbibresource{bibliog.bib}
+
+% - -  -- ÃÂndice Remissivo
+
+\usepackage{imakeidx}
+\makeindex[columns=2, title=ÃÂNDICE REMISSIVO, intoc]
+
+
+\usepackage{cleveref} %referencia
+\usepackage{nameref}
+\crefname{part}{Parte}{Partes}
+\crefname{chapter}{CapÃÂ­tulo}{CapÃÂ­tulos}
+\crefname{section}{SeÃÂ§ÃÂ£o}{SeÃÂ§ÃÂµes}
+\crefname{subsection}{SeÃÂ§ÃÂ£o}{SeÃÂ§ÃÂµes}
+\crefname{subsubsection}{SeÃÂ§ÃÂ£o}{SeÃÂ§ÃÂµes}
+\crefname{figure}{Figura}{Figuras} % changes default 
+%behavior to Figure. 1
+\crefname{table}{Tabela}{Tabelas}
+\crefname{equation}{EquaÃÂ§ÃÂ£o}{EquaÃÂ§ÃÂµes}
+\crefname{subfigure}{Figura}{Figuras}
+\crefname{subsubfigure}{Figura}{Figuras}
+\crefname{appendix}{Anexo}{Anexos}
+
+\begin{document}
+	
+\newcommand{\CustomCheckedBox}{\resizebox{!}{11pt}{%
+
+			\begin{tikzpicture}
+
+			\draw[line width=2pt, rounded corners] (0.75,1)--(0,1)--(0,0) -- (1,0) -- (1,0.5);
+
+			\draw[xshift=0cm,yshift=0.35cm,line width=2pt] (0.25,0.25)--(0.5,0)--(1,0.5);
+
+			\end{tikzpicture}}}
+
+	
+\newcommand{\CustomSquare}{\resizebox{!}{11pt}{%
+
+			\begin{tikzpicture}
+
+			\draw[line width=2pt, rounded corners] (1,1)--(0,1)--(0,0) -- (1,0) -- cycle;
+
+			\end{tikzpicture}}%
+
+	}
+% ----------------------------------------------
+%
+% ELEMENTOS PRÃÂ­ÃÂ-TEXTUAIS
+%
+% --------------------------------------------- 
+\import{./01-pre-textual/}{01-capa}
+\import{./01-pre-textual/}{02-falsa-folha-de-rosto}
+\import{./01-pre-textual/}{03-agradecimentos}
+\import{./01-pre-textual/}{03-folha-de-rosto}
+\import{./01-pre-textual/}{04-resumo}
+\import{./01-pre-textual/}{05-lista-de-figuras}
+\import{./01-pre-textual/}{06-lista-de-tabelas}
+\import{./01-pre-textual/}{07-lista-de-siglas}
+\import{./01-pre-textual/}{08-lista-simbolos}
+\import{./01-pre-textual/}{09-sumario}
+
+% ----------------------------------------------
+%
+% ELEMENTOS TEXTUAIS (CONTEÃÂDO)
+%
+% --------------------------------------------- 
+
+%\part{AVALIAÃÂÃÂO PRELIMINAR}
+
+
+\import{./02-conteudo/Avaliacao 
+Preliminar/}{07-identificacao}
+\import{./02-conteudo/Avaliacao Preliminar/}{08-historico}
+\import{./02-conteudo/Avaliacao 
+Preliminar/}{09-caracterizacao-empreendimento}
+\import{./02-conteudo/Avaliacao Preliminar/}{10-entorno}
+\import{./02-conteudo/Avaliacao 
+Preliminar/}{11-hidrogeologico}
+\import{./02-conteudo/Avaliacao Preliminar/}{12-MCI}
+
+
+
+\import{./02-conteudo/Investigacao 
+Confirmatoria/}{01-objetivo}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{02-seguranca}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{03-malha-cov}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{04-numero-sondagens}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{05-amostragem-solo}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{06-instalacao-pocos-amostragem-agua}
+\import{./02-conteudo/Investigacao 
+	Confirmatoria/}{07-amostragem-agua-subterranea}
+
+% ----------------------------------------------
+%
+% ELEMENTOS PÃÂS-TEXTUAIS
+%
+% --------------------------------------------- 
+\import{./03-pos-textual/}{01-bibliografia}
+\import{./03-pos-textual/}{02-glossario}
+%\import{./03-pos-textual/}{03-apendices}
+%\import{./03-pos-textual/}{04-anexos}
+\import{./03-pos-textual/}{05-indice-remissivo}
+\import{./03-pos-textual/}{06-formulario-identificacao}
+\end{document}
+		
